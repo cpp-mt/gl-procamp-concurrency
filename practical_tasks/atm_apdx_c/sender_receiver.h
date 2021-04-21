@@ -4,8 +4,7 @@
 
 namespace messaging
 {
-    class sender
-    {
+    class sender {
         queue *q;
     public:
         sender():
@@ -14,11 +13,9 @@ namespace messaging
         explicit sender(queue*q_):
             q(q_)
         {}
-        template<typename Message>
-        void send(Message const& msg)
-        {
-            if(q)
-            {
+        template<typename Message> 
+        void send(Message const& msg) {
+            if(q) {
                 q->push(msg);
             }
         }
@@ -28,12 +25,10 @@ namespace messaging
     {
         queue q;
     public:
-        operator sender()
-        {
+        operator sender() {
             return sender(&q);
         }
-        dispatcher wait()
-        {
+        dispatcher wait() {
             return dispatcher(&q);
         }
     };

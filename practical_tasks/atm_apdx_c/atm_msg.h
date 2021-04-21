@@ -2,8 +2,7 @@
 
 #include "sender_receiver.h"
 
-struct withdraw
-{
+struct withdraw {
     std::string account;
     unsigned amount;
     mutable messaging::sender atm_queue;
@@ -18,8 +17,7 @@ struct withdraw_ok
 {};
 struct withdraw_denied
 {};
-struct cancel_withdrawal
-{
+struct cancel_withdrawal {
     std::string account;
     unsigned amount;
     cancel_withdrawal(std::string const& account_,
@@ -27,8 +25,7 @@ struct cancel_withdrawal
         account(account_),amount(amount_)
     {}
 };
-struct withdrawal_processed
-{
+struct withdrawal_processed {
     std::string account;
     unsigned amount;
     withdrawal_processed(std::string const& account_,
@@ -36,16 +33,14 @@ struct withdrawal_processed
         account(account_),amount(amount_)
     {}
 };
-struct card_inserted
-{
+struct card_inserted {
     std::string account;
     explicit card_inserted(std::string const& account_):
         account(account_)
     {}
 
 };
-struct digit_pressed
-{
+struct digit_pressed {
     char digit;
     explicit digit_pressed(char digit_):
         digit(digit_)
@@ -56,8 +51,7 @@ struct clear_last_pressed
 {};
 struct eject_card
 {};
-struct withdraw_pressed
-{
+struct withdraw_pressed {
     unsigned amount;
     explicit withdraw_pressed(unsigned amount_):
         amount(amount_)
@@ -66,15 +60,13 @@ struct withdraw_pressed
 };
 struct cancel_pressed
 {};
-struct issue_money
-{
+struct issue_money {
     unsigned amount;
     issue_money(unsigned amount_):
         amount(amount_)
     {}
 };
-struct verify_pin
-{
+struct verify_pin {
     std::string account;
     std::string pin;
     mutable messaging::sender atm_queue;
@@ -99,28 +91,24 @@ struct display_pin_incorrect_message
 {};
 struct display_withdrawal_options
 {};
-struct get_balance
-{
+struct get_balance {
     std::string account;
     mutable messaging::sender atm_queue;
     get_balance(std::string const& account_,messaging::sender atm_queue_):
         account(account_),atm_queue(atm_queue_)
     {}
 };
-struct balance
-{
+struct balance {
     unsigned amount;
 
     explicit balance(unsigned amount_):
         amount(amount_)
     {}
 };
-struct display_balance
-{
+struct display_balance {
     unsigned amount;
     explicit display_balance(unsigned amount_):
         amount(amount_)
     {}
 };
-struct balance_pressed
-{};
+struct balance_pressed {};
