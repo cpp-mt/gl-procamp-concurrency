@@ -1,6 +1,6 @@
 #include "atm.h"
 #include <string>
-#include "sender_receiving.h"
+#include "sender_receiver.h"
 
 class atm
 {
